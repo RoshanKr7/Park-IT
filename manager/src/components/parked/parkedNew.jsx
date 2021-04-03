@@ -1,12 +1,13 @@
 import React, {useState, useCallback, useLayoutEffect} from 'react';
 import MaterialTable from 'material-table';
+import Session from "react-session-api";
 
 const {REACT_APP_API_BACKEND} = process.env;
 
 
 
 function ManagerHistory(){
-  let email = "apple@gmail.com";
+  let email = Session.get('email');
   let statusFetched = false;
   const [userStatus, setUserStatus] = useState([]);
 

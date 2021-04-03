@@ -14,6 +14,7 @@ import Session from "react-session-api";
 import {AuthContext} from "../../authContext";
 import {toast} from "react-toastify";
 
+
 const {REACT_APP_API_BACKEND} = process.env;
 
 function LoginForm(props) {
@@ -56,6 +57,7 @@ function LoginForm(props) {
             Session.set("email", data.email);
             Session.set("user_id", data._id);
             Session.set("name", data.firstName + " " + data.lastName);
+            Session.set("parking_id", data.parking_id);
             setEmail("");
             setPassword("");
             authUpdate(true);

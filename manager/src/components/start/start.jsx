@@ -10,6 +10,7 @@ import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
 import { Modal } from "react-responsive-modal";
 import {toast} from "react-toastify";
+import Session from "react-session-api";
 
 const {REACT_APP_API_BACKEND} = process.env;
 
@@ -37,7 +38,7 @@ function Content1(){
 
   const [vehicle, setVehicle] = useState("");
   const [vehicleType, setVehicleType] = useState("bike");
-  const parking_lot = "ChIJ4znoDUD9DDkRxt3lBXKW96Q";
+  const parking_lot = Session.get('parking_id');
 
   const vehicleEnter = () => toast.success("Successfully Parked "+ vehicle, {position: "top-center",autoClose: false, draggable: true});
   const vehicleNotPresent = () => toast.info("Vehicle No. not present! Please Enter", {position: "top-center",autoClose: false, draggable: true});
@@ -112,7 +113,7 @@ function Content1(){
 function Content2(){
 
   const [vehicle, setVehicle] = useState("");
-  const parking_lot = "ChIJ4znoDUD9DDkRxt3lBXKW96Q";
+  const parking_lot = Session.get('parking_id');
   let cost1 = 0;
 
   const parkCost = () => toast.info("Total Cost is Rs."+ cost1, {position: "top-center",autoClose: false, draggable: true});
